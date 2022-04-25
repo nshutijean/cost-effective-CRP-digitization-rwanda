@@ -1,0 +1,10 @@
+.vscode/
+LR.aux
+LR.bbl
+LR.bcf
+LR.blg
+LR.fdb_latexmk
+LR.fls
+LR.log
+LR.run.xml
+*.gz
