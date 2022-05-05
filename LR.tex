@@ -4,7 +4,10 @@
 % geometry
 \usepackage[top=0.5in]{geometry}
 \usepackage[english]{babel}
+\usepackage{pifont}
+\usepackage{graphicx}
 % \usepackage{blindtext}
+\usepackage{float}
 
 \usepackage[
     %backend=biber, 
@@ -13,6 +16,8 @@
     sorting=none
 ]{biblatex}
 \addbibresource{export.bib}
+\usepackage{csquotes}
+\graphicspath{{./images/}}
 
 \begin{document}
 \title{\Large{\textbf{The usefulness of photogrammetry in digitizing Rwanda's cultural assets}}}
@@ -52,7 +57,7 @@ asset and the real (physical) asset, we will be able to analyze and have a viabl
 hold every data needed in digitization. \\
 
 Hence, this research aims at investigating the need to preserve cultural heritage and suggesting proved methods and ways to conduct a digitization of cultural heritage using
-photogrammetry in Rwanda
+photogrammetry in Rwanda.
 
 \section{\textbf{Literature Review}}
 Cultural assets (heritage materials) are as essential as the culture itself, as they hold the meaning and history of a place.
@@ -91,30 +96,44 @@ Rwanda Cultural Heritage Agency, this technology could not only aid students but
 \subsection{Approach}
 This research paper attempts to investigate the necessity to cultural digitize heritage and suggest an effective way to carry that task using photogrammetry in Rwanda. To understand the necessity in digitizing the assets, observation through museums and places holding cultural heritage in Rwanda, was used. Whereas a considerable search on the web was used to find the effective method that might carry this task. Since cultural assets are stored in open places and that other related researches were made around this area, it was unchallenging to acquire the data. Using this data, we will demonstrate the necessity and analytical steps/methods that could be utilized.
 
-\subsection{A look at the necessity}
-Reprehenderit nostrud adipisicing dolore id amet irure commodo adipisicing nisi commodo laboris. Nisi amet sunt mollit nostrud ipsum proident. Velit veniam aliquip cillum nisi velit nulla aliquip ullamco ad adipisicing nisi in. Commodo tempor aliqua ad et sint adipisicing commodo et enim veniam nostrud.
+\subsection{The necessity}
+The only known way Rwanda conserves its heritage is mostly through oral history if it is intangible \cite{unescorw}. Or taking pictures of those that are tangible but some of them were crafted very long time ago, yet very few know how to replicate or reconstruct in case one is damaged. On top of that, there is a total of 530 sites holding Rwanda's cultural and 107 of them have been extensively explored according to Rwanda Cultural Heritage Association \cite{rcha}. However, there is no structured way of conserving any of the tangible heritage.
 
 \subsection{Image acquisition}
-Ex excepteur occaecat enim do adipisicing nulla sunt nostrud. Dolor elit consequat fugiat ipsum ex Lorem laboris. Amet irure incididunt officia adipisicing commodo culpa laborum exercitation fugiat. Quis aliquip ullamco adipisicing velit elit et irure quis velit do labore tempor. Ullamco tempor nostrud est fugiat laboris velit labore velit enim laboris. Sit nisi enim consequat eiusmod.
+Image acquisition in photogrammetric measuring scheme is the foundation of every other preceding step. If a stage is perfectly configured, the generated results are outstanding hence facilitating a transition to next phases. There are advanced and bigger tools for acquisition depending on how much 3D model accuracy is need according to the surface structure of the asset or how big the asset is\cite{Na2022}. For Rwanda's cultural tangible assets, a smartphone would be effective if the assets are small \cite{An2022} and an SLR (Single Lens Reflex) camera if the assets are larger \cite{cam1}. Additionally, because of technological advances, the result from the 2 gadgets mentioned, is as good as old ones made specifically for the science yet bigger and more expensive. 
 
 \subsection{Model construction}
-Cillum ipsum consequat laborum consectetur fugiat fugiat proident commodo minim ex adipisicing amet enim amet. Ea anim aute non dolor nisi tempor elit elit sit in non culpa. Nostrud commodo ex anim ullamco officia voluptate Lorem voluptate proident. Nulla nostrud aute duis enim nostrud duis consequat pariatur do. Culpa exercitation nulla fugiat pariatur id eu laboris magna incididunt incididunt incididunt esse.
+After the acquisition, the minimum number of images requires is 50, which might aid in building a low resolution sample. There are several commercial and free reconstruction pieces of software such as Meshroom, AgiSoft Metashape, 3DF Zephyr, VisualSFM, Reality Capture, where most of them use SfM. "SfM is a photogrammetric approach that use a series of images to generate a three-dimension structure of a scene based on computer vision and visual perception" \cite{Na2022}. With our case, 3DF Zephyr freemium (only 50 images) was selected for its user-friendliness and easier learning curve for sampling. Furthermore, an open-source software, Meshroom was picked aiming for its advanced features since it can be tweaked for better results after sampling.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=\linewidth]{images/3df.png}
+    \caption{Reconstruction in 3DF Zephyr}
+    \label{fig:one}
+\end{figure}
 
 \subsection{Retopology and compression}
-Ex enim laborum culpa do. Velit dolor tempor sit esse in. Eu dolor cupidatat dolore ut sint velit consequat non do esse in fugiat veniam ullamco. Esse commodo sint Lorem reprehenderit quis quis aute esse. Duis do amet quis mollit mollit deserunt proident magna eiusmod proident reprehenderit ex.
+Model construction and extraction might look like the last phase, but the resulting model is very sizeable depending on the complexity and resolution of images acquired. For example, a small model might have more than a million faces (polygons) with 30-50 mbs \cite{Lauria2022} and occasionally the model is expected to be viewed/displayed on the web, low-end phones or smartphones. So, by using retopology which is a method of "simplifying the topology of a mesh to make it cleaner and easier to work with" \cite{reto} it would reduce its size. In addition, a lossless 3D geometric compression \cite{draco} might be added to further reach the desired size.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=\linewidth]{images/IM.png}
+    \caption{Retopologying in Instant-Meshes}
+    \label{fig:two}
+\end{figure}
 
 \subsection{Comparison and evaluation}
-Voluptate ex pariatur incididunt in dolor pariatur qui proident qui. Ut ipsum quis et Lorem veniam anim do. Tempor ullamco sint veniam exercitation. Dolore eu esse consequat magna in elit officia ipsum. Non aliqua duis aliqua irure enim ut nulla sint reprehenderit elit ea esse veniam. Quis nisi et non laboris aliqua id deserunt sit eu Lorem commodo qui consequat. Qui adipisicing reprehenderit sint labore esse nostrud aliqua excepteur in labore adipisicing.
+The measurement of the 3D model precision might be done by comparing it with physical assets \cite{An2022}. This acts as the last phase in photogrammetric reconstruction since it is when the performance of a 3D model is measured with respect to the tangible asset. For example, point-to-point distances technique can be used to investigate its geometric measurements with respect to the world \cite{article}. Textures evaluation is also an addition since the 3D model has to be identical and with enough details to look like the tangible asset texture-wise. With high-resolution images, efficiently calibrated settings, a naked eye will be enough to evaluate the likeness of both assets.
 
 \section{\textbf{Conclusion}}
 The review investigated the history of cultural heritage digitization, methods, and the impact of digitizing cultural heritage by assessing what has been done before.
 The research showed how the need to preserve cultural assets started as early as the 18th century from an Austrian ruler during war. Even though, digitizing cultural assets started with images as soon as photographs were invented, later two
 advanced, effective methods namely laser-scanning and photogrammetry were utilized. Digitized cultural heritage impacts are several but tourism and education were found to be more closely impactful to the society. From this research it's clear
-that Rwanda as a regional ICT/Tech hub \cite{rwtechub} would leverage this technology to preserve and conserve its culture for next generations using photogrammetry. Moving forward, this research recommends effective technicalities driven past literatures on how
+that Rwanda as a regional ICT/Tech hub \cite{rwtechub} would leverage this technology to preserve and conserve its culture for next generations using photogrammetry. Moving forward, this research recommends effective technicalities driven by past literatures on how
 cultural heritage can be preserved in Rwanda.
 
 
 \printbibliography
-
 \end{document}
+
 
